@@ -309,7 +309,13 @@ line-height:2;
 </h3>
 
 
-<img src="qr.png" width="190">
+<!-- Inline SVG placeholder for QR code so no external file is required -->
+<svg width="190" height="190" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" aria-label="QR code placeholder">
+  <rect width="190" height="190" rx="20" fill="#fff" />
+  <g fill="#700000" font-family="Tahoma, Arial" font-size="36" font-weight="bold" text-anchor="middle">
+    <text x="95" y="105">QR</text>
+  </g>
+</svg>
 
 
 <p class="cardnumber">
@@ -350,13 +356,31 @@ function copyCard(){
 
 navigator.clipboard.writeText(
 "6277601352163594"
-);
-
-
-alert("شماره کارت کپی شد ✅");
+).then(function(){
+  showToast('شماره کارت کپی شد ✅');
+}).catch(function(){
+  alert('شماره کارت کپی شد ✅');
+});
 
 }
 
+// Small toast implementation
+function showToast(message){
+  var t = document.createElement('div');
+  t.textContent = message;
+  t.style.position = 'fixed';
+  t.style.bottom = '20px';
+  t.style.left = '50%';
+  t.style.transform = 'translateX(-50%)';
+  t.style.background = '#222';
+  t.style.color = '#fff';
+  t.style.padding = '10px 18px';
+  t.style.borderRadius = '8px';
+  t.style.boxShadow = '0 6px 18px rgba(0,0,0,.4)';
+  t.style.zIndex = 9999;
+  document.body.appendChild(t);
+  setTimeout(function(){ document.body.removeChild(t); }, 2500);
+}
 
 </script>
 
