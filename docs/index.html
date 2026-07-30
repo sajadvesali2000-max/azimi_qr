@@ -1,140 +1,366 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>لیست وظایف — To‑Do</title>
-  <style>
-    :root{--bg:#f7f7fb;--card:#ffffff;--accent:#2563eb;--muted:#6b7280;--glass: rgba(0,0,0,0.04);font-family:Tahoma, Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
-    html,body{height:100%; margin:0; background:linear-gradient(180deg,#eef2ff 0%,var(--bg) 100%); display:flex; align-items:center; justify-content:center;}
-    .app{width:100%; max-width:760px; margin:24px; background:var(--card); border-radius:12px; box-shadow:0 8px 30px rgba(20,20,50,0.08); padding:20px;}
-    h1{margin:0 0 8px; font-size:20px; color:#0f172a;}
-    .subtitle{margin:0 0 18px; color:var(--muted); font-size:13px}
-    .input-row{display:flex; gap:10px; margin-bottom:14px}
-    .input-row input[type="text"]{flex:1; padding:12px 14px; border-radius:10px; border:1px solid var(--glass); font-size:15px; background:transparent; outline:none}
-    .btn{background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; display:inline-flex; align-items:center; gap:8px}
-    .controls{display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap}
-    .filters{display:flex; gap:8px; align-items:center}
-    .filter-btn{padding:8px 12px; border-radius:10px; border:none; background:transparent; cursor:pointer; color:var(--muted)}
-    .filter-btn.active{background:var(--glass); color:var(--accent); font-weight:600}
-    .list{list-style:none; padding:0; margin:0}
-    .item{display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; margin-bottom:8px; background:linear-gradient(180deg, rgba(0,0,0,0.01), transparent)}
-    .item .title{flex:1; font-size:15px; color:#0b1220}
-    .item.done .title{ text-decoration:line-through; color:var(--muted) }
-    .actions{display:flex; gap:8px; align-items:center}
-    .small{font-size:13px; padding:8px 10px; border-radius:8px; border:1px solid var(--glass); background:#fff; cursor:pointer}
-    .count{color:var(--muted); font-size:13px}
-    .toolbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:12px; flex-wrap:wrap}
-    .inline-input{padding:8px 10px; border-radius:8px; border:1px solid var(--glass); font-size:14px; width:100%}
-    .hidden{display:none}
-    @media (max-width:520px){.input-row{flex-direction:column}.controls{flex-direction:column; align-items:stretch}.toolbar{flex-direction:column; align-items:stretch}}
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>محمد عظیمی</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:tahoma;
+}
+
+
+body{
+
+margin:0;
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+radial-gradient(circle at top,#b30000,#200000);
+
+}
+
+
+.card{
+
+width:380px;
+
+background:rgba(255,255,255,0.12);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.2);
+
+border-radius:35px;
+
+padding:28px;
+
+text-align:center;
+
+color:white;
+
+box-shadow:
+0 20px 50px black;
+
+}
+
+
+
+.logo{
+
+width:110px;
+height:110px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:
+linear-gradient(135deg,#ff1a1a,#650000);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:60px;
+
+box-shadow:
+0 0 25px #ff0000;
+
+}
+
+
+
+h1{
+
+font-size:34px;
+
+margin:20px 0 5px;
+
+}
+
+
+
+.subtitle{
+
+color:#eee;
+
+}
+
+
+
+.info{
+
+margin-top:20px;
+
+background:
+rgba(0,0,0,.35);
+
+padding:18px;
+
+border-radius:25px;
+
+line-height:2.2;
+
+}
+
+
+
+.btn{
+
+display:block;
+
+margin-top:12px;
+
+padding:15px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+color:white;
+
+background:
+linear-gradient(135deg,#e00000,#720000);
+
+transition:.3s;
+
+}
+
+
+.btn:hover{
+
+transform:scale(1.04);
+
+}
+
+
+
+.qrbox{
+
+margin-top:25px;
+
+background:white;
+
+color:#111;
+
+border-radius:25px;
+
+padding:20px;
+
+box-shadow:
+0 10px 25px black;
+
+}
+
+
+
+.qrbox h3{
+
+margin-top:0;
+
+color:#700000;
+
+}
+
+
+
+.cardnumber{
+
+font-size:18px;
+
+font-weight:bold;
+
+letter-spacing:1px;
+
+}
+
+
+.copy{
+
+margin-top:10px;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:15px;
+
+background:#700000;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+.footer{
+
+margin-top:25px;
+
+padding-top:15px;
+
+border-top:1px solid #ffffff44;
+
+font-size:14px;
+
+color:#ddd;
+
+line-height:2;
+
+
+}
+
+
+</style>
+
 </head>
+
+
+
 <body>
-  <main class="app" role="main" aria-labelledby="title">
-    <h1 id="title">فهرست وظایف</h1>
-    <p class="subtitle">نرم‌افزار سادهٔ To‑Do با ذخیره‌سازی محلی (localStorage) — اضافه، ویرایش، کامل‌شده، حذف، فیلتر، و پشتیبان‌گیری/بارگذاری</p>
 
-    <div class="input-row" aria-hidden="false">
-      <input id="new-todo" type="text" placeholder="وظیفه جدید را وارد کنید و Enter را بزنید یا روی «افزودن» کلیک کنید" aria-label="وظیفه جدید" />
-      <button id="add-btn" class="btn" aria-label="افزودن وظیفه">افزودن</button>
-    </div>
 
-    <div class="controls" role="toolbar" aria-label="کنترل‌ها">
-      <div class="filters" role="tablist" aria-label="فیلترها">
-        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">همه</button>
-        <button class="filter-btn" data-filter="active" role="tab" aria-selected="false">فعال</button>
-        <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">تکمیل‌شده</button>
-      </div>
+<div class="card">
 
-      <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
-        <button id="clear-completed" class="small">پاک کردن تکمیل‌شده‌ها</button>
-        <button id="export-btn" class="small">خروجی (JSON)</button>
-        <label class="small" style="display:inline-flex; gap:8px; align-items:center; cursor:pointer;">
-          وارد کردن
-          <input id="import-file" type="file" accept="application/json" class="hidden" />
-        </label>
-      </div>
-    </div>
 
-    <ul id="todo-list" class="list" aria-live="polite" aria-label="فهرست وظایف"></ul>
+<div class="logo">
+🥩
+</div>
 
-    <div class="toolbar">
-      <div class="count" id="remaining">0 مورد باقی مانده</div>
-      <div style="display:flex; gap:8px;">
-        <button id="select-all" class="small">تغییر همه</button>
-        <button id="clear-all" class="small">حذف همه</button>
-      </div>
-    </div>
 
-  </main>
 
-  <script>
-    const STORAGE_KEY = 'todos-v1-azimi_qr';
-    let todos = [];
-    let filter = 'all';
+<h1>
+محمد عظیمی
+</h1>
 
-    const newTodoInput = document.getElementById('new-todo');
-    const addBtn = document.getElementById('add-btn');
-    const todoList = document.getElementById('todo-list');
-    const remainingEl = document.getElementById('remaining');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const clearCompletedBtn = document.getElementById('clear-completed');
-    const exportBtn = document.getElementById('export-btn');
-    const importFile = document.getElementById('import-file');
-    const selectAllBtn = document.getElementById('select-all');
-    const clearAllBtn = document.getElementById('clear-all');
 
-    function loadTodos(){
-      try{const raw = localStorage.getItem(STORAGE_KEY); todos = raw ? JSON.parse(raw) : [];}catch(e){console.error('load failed',e); todos=[]}
-    }
-    function saveTodos(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(todos)); }
+<p class="subtitle">
+گوشت تازه و با کیفیت
+</p>
 
-    function addTodo(text){ text = text && text.trim(); if(!text) return; const todo = { id: Date.now().toString(), text, done:false, created: Date.now() }; todos.unshift(todo); saveTodos(); render(); }
-    function toggleTodo(id){ const t = todos.find(x=>x.id===id); if(!t) return; t.done = !t.done; saveTodos(); render(); }
-    function updateTodo(id,newText){ const t = todos.find(x=>x.id===id); if(!t) return; t.text=newText.trim(); saveTodos(); render(); }
-    function deleteTodo(id){ todos = todos.filter(x=>x.id!==id); saveTodos(); render(); }
-    function clearCompleted(){ todos = todos.filter(x=>!x.done); saveTodos(); render(); }
-    function toggleAll(){ const allDone = todos.length>0 && todos.every(t=>t.done); todos.forEach(t=>t.done = !allDone); saveTodos(); render(); }
-    function deleteAll(){ if(!confirm('آیا مطمئن هستید می‌خواهید همه‌ی وظایف حذف شوند؟')) return; todos=[]; saveTodos(); render(); }
 
-    function render(){
-      const visible = todos.filter(t=>{ if(filter==='all') return true; if(filter==='active') return !t.done; return t.done; });
-      todoList.innerHTML='';
-      if(visible.length===0){ const li=document.createElement('li'); li.className='item'; li.innerHTML='<div class="title" style="color:var(--muted)">وظیفه‌ای موجود نیست</div>'; todoList.appendChild(li); }
-      else{ visible.forEach(todo=>{
-        const li=document.createElement('li'); li.className='item'+(todo.done?' done':''); li.dataset.id=todo.id;
-        const cb=document.createElement('input'); cb.type='checkbox'; cb.checked=!!todo.done; cb.setAttribute('aria-label','تکمیل/لغو تکمیل'); cb.addEventListener('change',()=>toggleTodo(todo.id));
-        const title=document.createElement('div'); title.className='title'; title.tabIndex=0; title.textContent=todo.text; title.addEventListener('dblclick',()=>startEdit(todo.id,title)); title.addEventListener('keydown',(e)=>{ if(e.key==='Enter') startEdit(todo.id,title); });
-        const actions=document.createElement('div'); actions.className='actions';
-        const editBtn=document.createElement('button'); editBtn.className='small'; editBtn.title='ویرایش'; editBtn.innerHTML='ویرایش'; editBtn.addEventListener('click',()=>startEdit(todo.id,title));
-        const delBtn=document.createElement('button'); delBtn.className='small'; delBtn.title='حذف'; delBtn.style.borderColor='rgba(220,20,60,0.08)'; delBtn.style.color='var(--danger)'; delBtn.innerHTML='حذف'; delBtn.addEventListener('click',()=>{ if(confirm('آیا این وظیفه حذف شود؟')) deleteTodo(todo.id); });
-        actions.appendChild(editBtn); actions.appendChild(delBtn);
-        li.appendChild(cb); li.appendChild(title); li.appendChild(actions); todoList.appendChild(li);
-      })}
-      const remaining = todos.filter(t=>!t.done).length; remainingEl.textContent = `${remaining} مورد باقی مانده`;
-      filterButtons.forEach(b=>{ const isActive = b.dataset.filter===filter; b.classList.toggle('active',isActive); b.setAttribute('aria-selected', isActive ? 'true' : 'false'); });
-    }
 
-    function startEdit(id,titleDiv){ const currentText = titleDiv.textContent; const input=document.createElement('input'); input.className='inline-input'; input.value=currentText; titleDiv.replaceWith(input); input.focus(); input.setSelectionRange(input.value.length,input.value.length);
-      function commit(){ const v=input.value.trim(); if(v) updateTodo(id,v); else { if(confirm('متن خالی است — حذف شود؟')) deleteTodo(id); else render(); } }
-      function cancel(){ render(); }
-      input.addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ commit(); } else if(e.key==='Escape'){ cancel(); } }); input.addEventListener('blur', commit);
-    }
+<div class="info">
 
-    function exportTodos(){ const dataStr = JSON.stringify(todos, null, 2); const blob = new Blob([dataStr], {type: 'application/json'}); const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=`todos-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); }
-    function importTodos(file){ const reader=new FileReader(); reader.onload=function(e){ try{ const imported = JSON.parse(e.target.result); if(!Array.isArray(imported)) throw new Error('فرمت نامعتبر'); for(const it of imported){ const t={ id: it.id || Date.now().toString() + Math.random().toString(36).slice(2,6), text: (it.text||'').toString(), done: !!it.done, created: it.created || Date.now() }; todos.push(t); } saveTodos(); render(); alert('واردسازی با موفقیت انجام شد'); }catch(err){ alert('واردسازی ناموفق: '+err.message); } }; reader.readAsText(file); }
 
-    addBtn.addEventListener('click', ()=>{ addTodo(newTodoInput.value); newTodoInput.value=''; newTodoInput.focus(); });
-    newTodoInput.addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ addBtn.click(); }});
-    filterButtons.forEach(b=> b.addEventListener('click', ()=>{ filter = b.dataset.filter; render(); }));
-    clearCompletedBtn.addEventListener('click', ()=>{ if(confirm('پاک کردن همهٔ وظایف تکمیل‌شده؟')) clearCompleted(); });
-    exportBtn.addEventListener('click', exportTodos);
-    importFile.addEventListener('change', (e)=>{ const f=e.target.files[0]; if(f) importTodos(f); e.target.value=''; });
-    selectAllBtn.addEventListener('click', toggleAll);
-    clearAllBtn.addEventListener('click', deleteAll);
+📍 خراسان شمالی
 
-    loadTodos(); render();
-  </script>
+<br>
+
+روستای رویین
+
+
+<br><br>
+
+
+🕕 ساعت کاری
+
+<br>
+
+شیفت صبح:
+۶ تا ۱۲
+
+<br>
+
+شیفت عصر:
+۵ تا ۹ شب
+
+
+</div>
+
+
+
+<a class="btn" href="tel:09158254912">
+
+📞 تماس مستقیم
+
+</a>
+
+
+
+<a class="btn" href="sms:09158254912">
+
+✉️ ارسال پیامک
+
+</a>
+
+
+
+
+<div class="qrbox">
+
+
+<h3>
+💳 پرداخت
+</h3>
+
+
+<img src="qr.png" width="190">
+
+
+<p class="cardnumber">
+
+6277601352163594
+
+</p>
+
+
+<button class="copy" onclick="copyCard()">
+
+📋 کپی شماره کارت
+
+</button>
+
+
+</div>
+
+
+<div class="footer">
+
+تولید شده توسط سجاد وصالی
+
+<br>
+
+09155926409
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+function copyCard(){
+
+navigator.clipboard.writeText(
+"6277601352163594"
+);
+
+
+alert("شماره کارت کپی شد ✅");
+
+}
+
+
+</script>
+
+
 </body>
+
 </html>
