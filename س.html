@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>محمد عظیمی</title>
+<title>سوپر گوشت عظیمی</title>
 
 <style>
 
@@ -15,355 +15,238 @@ box-sizing:border-box;
 font-family:tahoma;
 }
 
-
 body{
-
 margin:0;
 min-height:100vh;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 background:
 radial-gradient(circle at top,#b30000,#200000);
-
 }
-
 
 .card{
-
 width:380px;
-
 background:rgba(255,255,255,0.12);
-
 backdrop-filter:blur(20px);
-
 border:1px solid rgba(255,255,255,.2);
-
 border-radius:35px;
-
 padding:28px;
-
 text-align:center;
-
 color:white;
-
 box-shadow:
 0 20px 50px black;
-
 }
-
-
 
 .logo{
-
 width:110px;
 height:110px;
-
 margin:auto;
-
 border-radius:50%;
-
 background:
 linear-gradient(135deg,#ff1a1a,#650000);
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 font-size:60px;
-
 box-shadow:
 0 0 25px #ff0000;
-
 }
-
-
 
 h1{
-
 font-size:34px;
-
 margin:20px 0 5px;
-
 }
-
-
 
 .subtitle{
-
 color:#eee;
-
+line-height:2;
 }
-
-
 
 .info{
-
 margin-top:20px;
-
 background:
 rgba(0,0,0,.35);
-
 padding:18px;
-
 border-radius:25px;
-
 line-height:2.2;
-
 }
-
-
 
 .btn{
-
 display:block;
-
 margin-top:12px;
-
 padding:15px;
-
 border-radius:18px;
-
 text-decoration:none;
-
 color:white;
-
 background:
 linear-gradient(135deg,#e00000,#720000);
-
 transition:.3s;
-
 }
-
 
 .btn:hover{
-
 transform:scale(1.04);
-
 }
-
-
 
 .qrbox{
-
 margin-top:25px;
-
 background:white;
-
 color:#111;
-
 border-radius:25px;
-
 padding:20px;
-
 box-shadow:
 0 10px 25px black;
-
 }
-
-
 
 .qrbox h3{
-
 margin-top:0;
-
 color:#700000;
-
 }
-
-
 
 .cardnumber{
-
 font-size:18px;
-
 font-weight:bold;
-
 letter-spacing:1px;
-
 }
 
-
+.owner{
+margin-top:10px;
+font-size:16px;
+font-weight:bold;
+color:#700000;
+}
 
 .copy{
-
 margin-top:10px;
-
 border:none;
-
 padding:12px 25px;
-
 border-radius:15px;
-
 background:#700000;
-
 color:white;
-
 cursor:pointer;
-
 }
-
-
 
 .footer{
-
 margin-top:25px;
-
 padding-top:15px;
-
 border-top:1px solid #ffffff44;
-
 font-size:14px;
-
 color:#ddd;
-
 line-height:2;
-
 }
 
+/* دکمه برند Vesatrix Labs */
+.vesatrix-btn{
+display:inline-block;
+margin-top:15px;
+padding:8px 20px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-size:13px;
+font-weight:bold;
+background:
+linear-gradient(135deg,#8a2be2,#00e5ff,#ff4fd8);
+box-shadow:
+0 0 15px #00e5ff,
+0 0 20px #8a2be2;
+transition:.3s;
+}
+
+.vesatrix-btn:hover{
+transform:scale(1.08);
+box-shadow:
+0 0 25px #ff4fd8;
+}
 
 </style>
 
 </head>
 
-
-
 <body>
 
-
 <div class="card">
-
 
 <div class="logo">
 🥩
 </div>
 
-
-
 <h1>
-محمد عظیمی
+سوپر گوشت عظیمی
 </h1>
 
-
 <p class="subtitle">
-گوشت تازه و با کیفیت
+<b>انواع گوشت</b>
+<br>
+🥩 گوشت تازه و باکیفیت
+<br>
+🐑 گوسفندی
+<br>
+🐄 گوساله
+<br>
+🍗 مرغ
 </p>
 
-
-
 <div class="info">
-
-
 📍 خراسان شمالی
-
 <br>
-
 روستای رویین
-
-
 <br><br>
-
-
 🕕 ساعت کاری
-
 <br>
-
 شیفت صبح:
 ۶ تا ۱۲
-
 <br>
-
 شیفت عصر:
 ۵ تا ۹ شب
-
-
 </div>
 
-
-
 <a class="btn" href="tel:09158254912">
-
 📞 تماس مستقیم
-
 </a>
-
-
 
 <a class="btn" href="sms:09158254912">
-
 ✉️ ارسال پیامک
-
 </a>
 
-
-
-
 <div class="qrbox">
-
-
 <h3>
 💳 پرداخت
 </h3>
 
-
-<img src="qr.png" width="190">
-
-
 <p class="cardnumber">
-
 6277601352163594
-
 </p>
 
+<p class="owner">
+محمد عظیمی رویین
+</p>
 
 <button class="copy" onclick="copyCard()">
-
 📋 کپی شماره کارت
-
 </button>
 
-
 </div>
-
-
 
 <div class="footer">
-
-تولید شده توسط سجاد وصالی
-
+Vesatrix Labs
 <br>
-
-09155926409
-
+طراحی تجربه‌های دیجیتال هوشمند
 </div>
 
-
+<a class="vesatrix-btn" href="tel:09155926409">
+✨ تماس با Vesatrix Labs ✨
+</a>
 
 </div>
-
-
 
 <script>
-
-
 function copyCard(){
-
-navigator.clipboard.writeText(
-"6277601352163594"
-);
-
-
-alert("شماره کارت کپی شد ✅");
-
+navigator.clipboard.writeText("6277601352163594")
+.then(()=>{alert("شماره کارت کپی شد ✅");})
+.catch(()=>{prompt("لطفاً شماره کارت را دستی کپی کنید:", "6277601352163594");});
 }
-
-
 </script>
-
 
 </body>
 
